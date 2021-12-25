@@ -43,7 +43,7 @@ method   : ident LPAR (((ident | expr)',')* (ident | expr))? RPAR;
 COMMENT  : '#' ~[\r\n]* -> skip ;
 
 TYPE     : 'void';
-NUM      : [0-9]+ ('.'[0-9]+)?;
+NUM      : '-'?[0-9]+ ('.'[0-9]+)?;
 LETTER   : [a-zA-Z\u0080-\u00FF];
 ident    : LETTER (LETTER | NUM)*;
 MES      : '+' ;

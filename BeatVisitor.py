@@ -17,8 +17,7 @@ class Style():
     RED = '\033[38;2;255;89;129m'
     PURPLE = '\033[38;2;187;110;255m'
     BLUE = '\033[38;2;80;130;220m'
-    DARK_BLUE = '\033[38;2;33;79;168m'
-    GREEN = '\033[38;2;40;220;100m'
+    GREEN = '\033[38;2;100;210;100m'
     RESET = '\033[0m'
     ORANGE = '\033[38;2;221;162;58m'
 
@@ -96,16 +95,14 @@ class BeatVisitor(ExprVisitor):
         l = list(ctx.getChildren())
         code = Style.BLUE + l[0].getText() + Style.RESET + '('
         i = 2
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
-            code += l[i].getText()
+        while i < len(l) and (hasattr(l[i], 'getRuleIndex') or (hasattr(l[i], 'getSymbol') and l[i].getSymbol().type == ExprParser.STRING)):
+            if hasattr(l[i], 'getSymbol'):
+                code += Style.GREEN + l[i].getText() + Style.RESET
+            else:
+                code += l[i].getText()
             if l[i + 1].getText() == ',':
-                code += ','
+                code += ', '
             i += 2
-
-        if i == 2:
-            i += 2
-        else:
-            i += 1
 
         return code + ')'
 
@@ -174,16 +171,11 @@ class BeatVisitor(ExprVisitor):
         code = ''
         code += Style.BLUE + l[0].getText() + Style.RESET + '('
         i = 2
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+        while i < len(l) and hasattr(l[i], 'getRuleIndex'):
             code += l[i].getText()
             if l[i + 1].getText() == ',':
                 code += ', '
             i += 2
-
-        if i == 2:
-            i += 2
-        else:
-            i += 1
 
         code += ')'
         return code
