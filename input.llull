@@ -1,0 +1,12 @@
+void main() {
+    eratostenes(3,4)
+    eratostenes(3,4,5)
+}
+
+void eratostenes(p, n) {
+    write(p, n)
+}
+
+void eratostenes(p, n, u) {
+    write(p, n, u)
+}
