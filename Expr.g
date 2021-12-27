@@ -22,8 +22,8 @@ expr : LPAR expr RPAR
     ;
 
 stmt : 'if' LPAR expr RPAR LBRACKET stmt* RBRACKET ('else' LBRACKET stmt* RBRACKET)?
-    | 'while' LPAR expr RPAR LBRACKET stmt+ RBRACKET
-    | 'for' LPAR assig ';' expr ';' assig RPAR LBRACKET stmt+ RBRACKET
+    | 'while' LPAR expr RPAR LBRACKET stmt* RBRACKET
+    | 'for' LPAR assig ';' expr ';' assig RPAR LBRACKET stmt* RBRACKET
     | read
     | write
     | assig

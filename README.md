@@ -1,7 +1,7 @@
 # Compiler
 Compilador para el lenguaje de Llull implementado en Python y con la ayuda de la herramienta ANTLR.
 
-## Descriptión
+## Descripción
 Para utilizarlo, debemos invocar Python pasándole como primer parámetro el archivo llull.py y como segundo parámetro el archivo de texto con extensión .llull del cual
 queremos que lea el código. Opcionalmente, podemos introducir un nombre de función (seguido de sus parámetros si es que tiene). De esta manera,
 empezaremos la ejecución por la función introducida. Si no introducimos ninguna función se empezará por la función llamada main. En caso que no exista main y no se haya
@@ -22,11 +22,17 @@ se pueden realizar llamadas a funciones y se puden utilizar elementos como ```if
 ```get``` o ```set```. Además, se pueden declarar varias funciones con el mismo nombre, siempre y cuando tengan distinto número de parámetros. En el juego de
 pruebas podemos ver un ejemplo con esto.
 
-
-## Examples
-
+Un ejemplo de invocación del compilador sería:
 ```bash
-python EvalVisitor.py input.llull
+python3 llull.py test-0.llull
 ```
 
+La segunda parte del programa consiste en un "pretty-printer" que nos ayudará a visualizar el código bien formateado. Un ejemplo de invocación sería:
+```bash
+python3 beat.py test-0.llull
+```
+Con esto, podemos ver el código siguiendo las convenciones mencionadas por PEP8 y con colores para mejorar la visibilidad.
+
+
+## Ejemplo
 [![asciicast](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS.svg)](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS)
