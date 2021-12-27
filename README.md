@@ -36,8 +36,5 @@ Con esto, podemos ver el código siguiendo las convenciones mencionadas por PEP8
 ## Ejemplo
 [![asciicast](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS.svg)](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS)
 
-## Autor
+### Autor
 Andrés Eduardo Bercowsky Rama
-
-## Licencia
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
