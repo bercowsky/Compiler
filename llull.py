@@ -43,7 +43,7 @@ class EvalVisitor(ExprVisitor):
 
         mainFunc = 0
         for child in self.funcDeclarations.declarations:
-            if child['name'] == self.firstFunc:
+            if child['name'] == self.firstFunc and len(child['params']) == len(self.firstParams):
                 mainFunc = child
 
         if mainFunc == 0:
@@ -89,7 +89,7 @@ class EvalVisitor(ExprVisitor):
 
             elif l[1].getText() == '^':
                 return self.visit(l[0]) ** self.visit(l[2])
-            
+
             elif l[1].getText() == '%':
                 return self.visit(l[0]) % self.visit(l[2])
 
@@ -250,12 +250,10 @@ class EvalVisitor(ExprVisitor):
 
     def visitGetArr(self, ctx):
         l = list(ctx.getChildren())
-        # return self.symbolTable.findSymbol(l[2].getText())[self.visit(l[4])]
         return self.symbolTable.getArrayElem(l[2].getText(), self.visit(l[4]))
 
     def visitSetArr(self, ctx):
         l = list(ctx.getChildren())
-        #self.symbolTable.findSymbol(l[2].getText())[self.visit(l[4])] = self.visit(l[6])
         self.symbolTable.setArrayElem(
             l[2].getText(), self.visit(l[4]), self.visit(l[6]))
 
@@ -275,7 +273,7 @@ class SymbolTable:
             if isinstance(param, int) or isinstance(param, float):
                 dic[paramName] = param
             elif param[0] == '"':
-                dic[paramName] = param[1:-1]
+                dic[paramName] = param
             elif isinstance(SymbolTable.findSymbol(param), list):
                 dic[paramName] = '*' + str(len(SymbolTable.symbols) - 1)
             else:
@@ -290,6 +288,9 @@ class SymbolTable:
     @staticmethod
     def findSymbol(key):
         if key in SymbolTable.symbols[-1]:
+            symbol = SymbolTable.symbols[-1][key]
+            if isinstance(symbol, str):
+                return symbol.strip('"')
             return SymbolTable.symbols[-1][key]
 
         raise Exception('Variable ' + key + ' not defined')

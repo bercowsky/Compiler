@@ -4,8 +4,7 @@ Compilador para el lenguaje de Llull implementado en Python y con la ayuda de la
 ## Descripción
 Para utilizarlo, debemos invocar Python pasándole como primer parámetro el archivo llull.py y como segundo parámetro el archivo de texto con extensión .llull del cual
 queremos que lea el código. Opcionalmente, podemos introducir un nombre de función (seguido de sus parámetros si es que tiene). De esta manera,
-empezaremos la ejecución por la función introducida. Si no introducimos ninguna función se empezará por la función llamada main. En caso que no exista main y no se haya
-pasado ninguna función, el programa devolverá una excepción. También, si se ha introducido una función que no existe, el programa devolverá una excepción.
+empezaremos la ejecución por la función introducida. Cabe destacar que si queremos pasar un String como parámetro, tendremos que utilizar primero comillas simples,  después comillas dobles y finalmente el String deseado: '"Prueba"'. Si no introducimos ninguna función se empezará por la función llamada main. En caso que no exista main y no se haya pasado ninguna función, el programa empezará por la primera función que se encuentre. También, si se ha introducido una función que no existe, el programa devolverá una excepción.
 
 He creado 3 tipos de datos:
 - **Numerico**: Enteros y flotantes.
@@ -36,3 +35,9 @@ Con esto, podemos ver el código siguiendo las convenciones mencionadas por PEP8
 
 ## Ejemplo
 [![asciicast](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS.svg)](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS)
+
+## Autor
+Andrés Eduardo Bercowsky Rama
+
+## Licencia
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)

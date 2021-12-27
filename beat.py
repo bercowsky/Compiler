@@ -1,9 +1,6 @@
 from antlr4 import *
 from ExprLexer import ExprLexer
 from os import sys
-#import colorama
-#from colorama import Style, Style
-#from colors import *
 
 if __name__ is not None and "." in __name__:
     from .ExprParser import ExprParser
@@ -28,11 +25,10 @@ class BeatVisitor(ExprVisitor):
 
     def checkRuleName(self, l, i, ruleName):
         b = i < len(l) and hasattr(l[i], 'getRuleIndex')
-        return  b and ExprParser.ruleNames[l[i].getRuleIndex()] == ruleName
+        return b and ExprParser.ruleNames[l[i].getRuleIndex()] == ruleName
 
+# Visitors
 
-    #### Visitors ####
-    
     def visitRoot(self, ctx):
         l = list(ctx.getChildren())
         for i in range(0, len(l) - 1):
@@ -214,8 +210,6 @@ lexer = ExprLexer(input_stream)
 token_stream = CommonTokenStream(lexer)
 parser = ExprParser(token_stream)
 tree = parser.root()
-
-#print(parser.ruleNames)
 
 visitor = BeatVisitor()
 visitor.visit(tree)
