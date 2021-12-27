@@ -38,8 +38,9 @@ array    : 'array' LPAR ident ',' expr RPAR;
 getArr   : 'get' LPAR ident ',' expr RPAR;
 setArr   : 'set' LPAR ident ',' expr ',' expr RPAR;
 assig    : ident '=' expr;
-method   : ident LPAR (((ident | expr)',')* (ident | expr))? RPAR;
+method   : ident LPAR (((ident | expr | STRING)',')* (ident | expr | STRING))? RPAR;
 
+ML_COMMENT : '#*' (.|[\r\n])*? '*#' -> skip ;
 COMMENT  : '#' ~[\r\n]* -> skip ;
 
 TYPE     : 'void';

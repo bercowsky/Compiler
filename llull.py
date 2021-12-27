@@ -127,7 +127,7 @@ class EvalVisitor(ExprVisitor):
                 return 0
 
             else:
-                raise Exception('Illegal operator')
+                raise Exception('Illegal operation')
 
     def visitFunc(self, ctx):
         l = list(ctx.getChildren())
@@ -225,12 +225,14 @@ class EvalVisitor(ExprVisitor):
         l = list(ctx.getChildren())
         paramsValues = []
         i = 2
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and (ExprParser.ruleNames[l[i].getRuleIndex(
-        )] == 'ident' or ExprParser.ruleNames[l[i].getRuleIndex()] == 'expr'):
-            if ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+        while i < len(l) and l[i].getText() != ')':
+            if hasattr(l[i], 'getRuleIndex'):
+                if ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+                    paramsValues.append(l[i].getText())
+                elif ExprParser.ruleNames[l[i].getRuleIndex()] == 'expr':
+                    paramsValues.append(self.visit(l[i]))
+            else:
                 paramsValues.append(l[i].getText())
-            elif ExprParser.ruleNames[l[i].getRuleIndex()] == 'expr':
-                paramsValues.append(self.visit(l[i]))
             i += 2
 
         funcParamNames = self.funcDeclarations.getFuncParams(l[0].getText(), paramsValues)
@@ -272,6 +274,8 @@ class SymbolTable:
         for param, paramName in zip(paramsValues, funcParamNames):
             if isinstance(param, int) or isinstance(param, float):
                 dic[paramName] = param
+            elif param[0] == '"':
+                dic[paramName] = param[1:-1]
             elif isinstance(SymbolTable.findSymbol(param), list):
                 dic[paramName] = '*' + str(len(SymbolTable.symbols) - 1)
             else:

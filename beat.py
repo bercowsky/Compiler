@@ -1,9 +1,9 @@
 from antlr4 import *
 from ExprLexer import ExprLexer
 from os import sys
-import colorama
-from colorama import Style, Style
-from colors import *
+#import colorama
+#from colorama import Style, Style
+#from colors import *
 
 if __name__ is not None and "." in __name__:
     from .ExprParser import ExprParser
@@ -18,19 +18,26 @@ class Style():
     PURPLE = '\033[38;2;187;110;255m'
     BLUE = '\033[38;2;80;130;220m'
     GREEN = '\033[38;2;100;210;100m'
-    RESET = '\033[0m'
     ORANGE = '\033[38;2;221;162;58m'
+    RESET = '\033[0m'
 
 
 class BeatVisitor(ExprVisitor):
     def __init__(self):
         self.numSpaces = 0
 
+    def checkRuleName(self, l, i, ruleName):
+        b = i < len(l) and hasattr(l[i], 'getRuleIndex')
+        return  b and ExprParser.ruleNames[l[i].getRuleIndex()] == ruleName
+
+
+    #### Visitors ####
+    
     def visitRoot(self, ctx):
         l = list(ctx.getChildren())
         for i in range(0, len(l) - 1):
             print(self.visit(l[i]))
-            if hasattr(l[i + 1], 'getRuleIndex') and ExprParser.ruleNames[l[i + 1].getRuleIndex()] == 'func':
+            if self.checkRuleName(l, i + 1, 'func'):
                 print()
 
     def visitExpr(self, ctx):
@@ -41,7 +48,7 @@ class BeatVisitor(ExprVisitor):
                 return Style.ORANGE + l[0].getText() + Style.RESET
 
             else:
-                if hasattr(l[0], 'getRuleIndex') and ExprParser.ruleNames[l[0].getRuleIndex()] == 'getArr':
+                if self.checkRuleName(l, 0, 'getArr'):
                     return self.visit(l[0])
                 else:
                     return Style.RESET + l[0].getText()
@@ -62,7 +69,7 @@ class BeatVisitor(ExprVisitor):
         code += Style.RED + l[0].getText() + ' ' + \
             Style.PURPLE + l[1].getText() + Style.RESET + ' ('
         i = 3
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+        while self.checkRuleName(l, i, 'ident'):
             code += l[i].getText()
             if l[i + 1].getText() == ',':
                 code += ', '
@@ -76,7 +83,7 @@ class BeatVisitor(ExprVisitor):
         code += ') {\n'
         self.numSpaces += 4
 
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+        while self.checkRuleName(l, i, 'stmt'):
             code += ' ' * self.numSpaces + self.visit(l[i]) + '\n'
             i += 1
 
@@ -119,20 +126,21 @@ class BeatVisitor(ExprVisitor):
             code += Style.RED + l[0].getText() + Style.RESET + \
                 ' (' + self.visit(l[2]) + ') {\n'
             i = 5
-            while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+            while self.checkRuleName(l, i, 'stmt'):
                 code += ' ' * self.numSpaces + self.visit(l[i]) + '\n'
                 i += 1
 
             i = 5
-            while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+            while self.checkRuleName(l, i, 'stmt'):
                 i += 1
+
             if i + 1 < len(l):
                 i += 3
                 self.numSpaces -= 4
                 code += ' ' * self.numSpaces + '}\n'
                 code += ' ' * self.numSpaces + Style.RED + 'else' + Style.RESET + ' {\n'
                 self.numSpaces += 4
-                while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                while self.checkRuleName(l, i, 'stmt'):
                     code += ' ' * self.numSpaces + self.visit(l[i]) + '\n'
                     i += 1
             self.numSpaces -= 4
@@ -143,8 +151,7 @@ class BeatVisitor(ExprVisitor):
             code += Style.RED + l[0].getText() + Style.RESET + ' (' + self.visit(
                 l[2]) + '; ' + self.visit(l[4]) + '; ' + self.visit(l[6]) + ') {\n'
             i = 9
-            while i < len(l) and hasattr(
-                    l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+            while self.checkRuleName(l, i, 'stmt'):
                 code += ' ' * self.numSpaces + self.visit(l[i]) + '\n'
                 i += 1
 
@@ -153,11 +160,11 @@ class BeatVisitor(ExprVisitor):
 
         elif l[0].getText() == 'while':
             self.numSpaces += 4
-            code += f"{Style.BLUE}{l[0].getText()}" + \
-                ' (', self.visit(l[2]) + ') {\n'
+            code += Style.RED + l[0].getText() + Style.RESET + \
+                ' (' + self.visit(l[2]) + ') {\n'
             i = 5
-            while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
-                code += ' ' * self.numSpaces + self.visit(l[i])
+            while self.checkRuleName(l, i, 'stmt'):
+                code += ' ' * self.numSpaces + self.visit(l[i]) + '\n'
                 i += 1
 
             self.numSpaces -= 4
@@ -171,8 +178,11 @@ class BeatVisitor(ExprVisitor):
         code = ''
         code += Style.BLUE + l[0].getText() + Style.RESET + '('
         i = 2
-        while i < len(l) and hasattr(l[i], 'getRuleIndex'):
-            code += l[i].getText()
+        while i < len(l) and (hasattr(l[i], 'getRuleIndex') or (hasattr(l[i], 'getSymbol') and l[i].getSymbol().type == ExprParser.STRING)):
+            if hasattr(l[i], 'getSymbol'):
+                code += Style.GREEN + l[i].getText() + Style.RESET
+            else:
+                code += l[i].getText()
             if l[i + 1].getText() == ',':
                 code += ', '
             i += 2
@@ -203,7 +213,7 @@ token_stream = CommonTokenStream(lexer)
 parser = ExprParser(token_stream)
 tree = parser.root()
 
-print(parser.ruleNames)
+#print(parser.ruleNames)
 
 visitor = BeatVisitor()
 visitor.visit(tree)

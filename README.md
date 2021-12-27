@@ -7,6 +7,11 @@ queremos que lea el código. Opcionalmente, podemos introducir un nombre de func
 empezaremos la ejecución por la función introducida. Si no introducimos ninguna función se empezará por la función llamada main. En caso que no exista main y no se haya
 pasado ninguna función, el programa devolverá una excepción. También, si se ha introducido una función que no existe, el programa devolverá una excepción.
 
+He creado 3 tipos de datos:
+- **Numerico**: Enteros y flotantes.
+- **Booleano**: 1 o 0.
+- **String**: Cadenas de caracteres.
+- **Array**: Lista de elementos.
 
 
 ## Examples
