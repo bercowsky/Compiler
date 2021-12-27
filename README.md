@@ -19,7 +19,8 @@ con el comando ```#*``` donde se desea empezar y ```*#``` donde se desea acabar.
 
 El programa se ha de componer de funciones de tipo void, que no devuelven ningún valor. Dentro de las funciones se pueden definir variables de cualquier tipo,
 se pueden realizar llamadas a funciones y se puden utilizar elementos como ```if```, ```else```, ```for```, ```while```, ```write```, ```read```, ```array```, 
-```get``` o ```set```. Además, 
+```get``` o ```set```. Además, se pueden declarar varias funciones con el mismo nombre, siempre y cuando tengan distinto número de parámetros. En el juego de
+pruebas podemos ver un ejemplo con esto.
 
 
 ## Examples
@@ -27,3 +28,5 @@ se pueden realizar llamadas a funciones y se puden utilizar elementos como ```if
 ```bash
 python EvalVisitor.py input.llull
 ```
+
+[![asciicast](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS.svg)](https://asciinema.org/a/LIoB4udnT1NdCnVndCVugrViS)

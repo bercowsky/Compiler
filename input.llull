@@ -1,5 +1,5 @@
-void main() {
-    #*read(n)
+#*void main() {
+    read(n)
     array(p, n + 1) # crea un array [0 .. n] inicialitzant totes les posicions a zero
     write(p)
     eratostenes(p, n)
@@ -17,7 +17,7 @@ void main() {
         }
     }
     print("Éxito")
-    print()*#
+    print()
     read(s)
     print(s)
 }
@@ -43,4 +43,17 @@ void print(s) {
 
 void print() {
     write("Proceso finalizado!")
+}*#
+
+void main() {
+    read(n)
+    hanoi(n, 1, 2, 3)
+}
+
+void hanoi(n, ori, dst, aux) {
+    if (n > 0) {
+        hanoi(n - 1, ori, aux, dst)
+        write(ori, "->", dst)
+        hanoi(n - 1, aux, dst, ori)
+    }
 }

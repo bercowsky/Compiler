@@ -181,8 +181,10 @@ class BeatVisitor(ExprVisitor):
         while i < len(l) and (hasattr(l[i], 'getRuleIndex') or (hasattr(l[i], 'getSymbol') and l[i].getSymbol().type == ExprParser.STRING)):
             if hasattr(l[i], 'getSymbol'):
                 code += Style.GREEN + l[i].getText() + Style.RESET
-            else:
+            elif ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
                 code += l[i].getText()
+            else:
+                code += self.visit(l[i])
             if l[i + 1].getText() == ',':
                 code += ', '
             i += 2
