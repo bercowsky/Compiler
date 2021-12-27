@@ -13,6 +13,14 @@ He creado 3 tipos de datos:
 - **String**: Cadenas de caracteres.
 - **Array**: Lista de elementos.
 
+Las operaciones solo se pueden llevar a cabo con variables de tipo númerico o booleano (ya que su valor realmente es un número).
+Nuestro compilador soporta las operaciones de suma, resta, multiplicación, división, modulo, y exponenciación. Además, se pueden realizar comentarios multilínea
+con el comando ```#*``` donde se desea empezar y ```*#``` donde se desea acabar. Los comentarios de una línea se realizan con el comando ```#```.
+
+El programa se ha de componer de funciones de tipo void, que no devuelven ningún valor. Dentro de las funciones se pueden definir variables de cualquier tipo,
+se pueden realizar llamadas a funciones y se puden utilizar elementos como ```if```, ```else```, ```for```, ```while```, ```write```, ```read```, ```array```, 
+```get``` o ```set```. Además, 
+
 
 ## Examples
 
