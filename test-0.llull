@@ -1,4 +1,5 @@
 void main() {
+    write("Introduce un número natural:")
     read(n)
     array(p, n + 1) # crea un array [0 .. n] inicialitzant totes les posicions a zero
     write(p)
@@ -8,13 +9,13 @@ void main() {
         if (get(p, i) == 1) {
             write(i)
         }
-        else {
+        #*else {
             k = 3
             while (k > 0) {
                 write("k:", k)
                 k = k - 1
             }
-        }
+        }*#
     }
     write("Éxito")
     print()

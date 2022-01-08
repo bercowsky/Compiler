@@ -10,21 +10,6 @@ else:
     from ExprVisitor import ExprVisitor
 
 
-class Error:
-    def __init__(self, errorName, details):
-        self.errorName = errorName
-        self.details = details
-
-    def asString(self):
-        result = f'{self.errorName}: {self.details}'
-        return result
-
-
-class IllegaCharError(Error):
-    def __init__(self, details):
-        super().__init__('Illegal Character', details)
-
-
 class EvalVisitor(ExprVisitor):
     def __init__(self, firstFunc, firstParams):
         self.symbolTable = SymbolTable()
@@ -32,12 +17,15 @@ class EvalVisitor(ExprVisitor):
         self.firstFunc = firstFunc
         self.firstParams = firstParams
 
+    def checkRuleName(self, l, i, ruleName):
+        b = i < len(l) and hasattr(l[i], 'getRuleIndex')
+        return b and ExprParser.ruleNames[l[i].getRuleIndex()] == ruleName
+
     def visitRoot(self, ctx):
         l = list(ctx.getChildren())
         i = 0
         while i < len(l):
-            if hasattr(
-                    l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'func':
+            if self.checkRuleName(l, i, 'func'):
                 self.visit(l[i])
             i += 1
 
@@ -65,10 +53,13 @@ class EvalVisitor(ExprVisitor):
                 return int(l[0].getText())
 
             else:
-                if hasattr(l[0], 'getRuleIndex') and ExprParser.ruleNames[l[0].getRuleIndex()] == 'getArr':
+                if self.checkRuleName(l, 0, 'getArr'):
                     return self.visit(l[0])
                 else:
-                    return self.symbolTable.findSymbol(l[0].getText())
+                    value = self.symbolTable.findSymbol(l[0].getText())
+                    if isinstance(value, str):
+                        raise Exception('Illegal operation with Strings')
+                    return value
 
         else:  # len(l) == 3
             if l[1].getText() == '+':
@@ -129,6 +120,7 @@ class EvalVisitor(ExprVisitor):
             else:
                 raise Exception('Illegal operation')
 
+
     def visitFunc(self, ctx):
         l = list(ctx.getChildren())
         info = {
@@ -137,7 +129,7 @@ class EvalVisitor(ExprVisitor):
             'body': []
         }
         i = 3
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+        while self.checkRuleName(l, i, 'ident'):
             info['params'].append(l[i].getText())
             i += 2
 
@@ -146,7 +138,7 @@ class EvalVisitor(ExprVisitor):
         else:
             i += 2
 
-        while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+        while self.checkRuleName(l, i, 'stmt'):
             info['body'].append(l[i])
             i += 1
 
@@ -160,11 +152,11 @@ class EvalVisitor(ExprVisitor):
         l = list(ctx.getChildren())
         i = 2
         while i < len(l) and not (hasattr(l[i], 'getSymbol') and l[i].getSymbol == ExprParser.RPAR):
-            if hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'ident':
+            if self.checkRuleName(l, i, 'ident'):
                 print(self.symbolTable.findSymbol(l[i].getText()), end=' ')
-            elif hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'expr':
+            elif self.checkRuleName(l, i, 'expr'):
                 print(self.visit(l[i]), end=' ')
-            elif hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'getArr':
+            elif self.checkRuleName(l, i, 'getArr'):
                 print(self.visit(l[i]), end=' ')
             else:
                 print(l[i].getText().strip('"'), end=' ')
@@ -189,16 +181,16 @@ class EvalVisitor(ExprVisitor):
             cond = self.visit(l[2])
             if cond == 1:
                 i = 5
-                while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                while self.checkRuleName(l, i, 'stmt'):
                     self.visit(l[i])
                     i += 1
             else:
                 i = 5
-                while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                while self.checkRuleName(l, i, 'stmt'):
                     i += 1
                 if i + 1 < len(l):
                     i += 3
-                    while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                    while self.checkRuleName(l, i, 'stmt'):
                         self.visit(l[i])
                         i += 1
 
@@ -206,7 +198,7 @@ class EvalVisitor(ExprVisitor):
             self.visit(l[2])
             while self.visit(l[4]) == 1:
                 i = 9
-                while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                while self.checkRuleName(l, i, 'stmt'):
                     self.visit(l[i])
                     i += 1
                 self.visit(l[6])
@@ -214,7 +206,7 @@ class EvalVisitor(ExprVisitor):
         elif l[0].getText() == 'while':
             while self.visit(l[2]) == 1:
                 i = 5
-                while i < len(l) and hasattr(l[i], 'getRuleIndex') and ExprParser.ruleNames[l[i].getRuleIndex()] == 'stmt':
+                while self.checkRuleName(l, i, 'stmt'):
                     self.visit(l[i])
                     i += 1
 
