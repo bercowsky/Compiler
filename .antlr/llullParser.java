@@ -1,4 +1,4 @@
-// Generated from /Users/andresbercowskyrama/Desktop/UNI/5-Cuatri/LP/Práctica_compilador/Compiler/Expr.g4 by ANTLR 4.8
+// Generated from /Users/andresbercowskyrama/Desktop/UNI/5-Cuatri/LP/Práctica_compilador/Compiler/llull.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class ExprParser extends Parser {
+public class llullParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -85,7 +85,7 @@ public class ExprParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Expr.g4"; }
+	public String getGrammarFileName() { return "llull.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -96,13 +96,13 @@ public class ExprParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public ExprParser(TokenStream input) {
+	public llullParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	public static class RootContext extends ParserRuleContext {
-		public TerminalNode EOF() { return getToken(ExprParser.EOF, 0); }
+		public TerminalNode EOF() { return getToken(llullParser.EOF, 0); }
 		public List<FuncContext> func() {
 			return getRuleContexts(FuncContext.class);
 		}
@@ -152,17 +152,17 @@ public class ExprParser extends Parser {
 	}
 
 	public static class FuncContext extends ParserRuleContext {
-		public TerminalNode TYPE() { return getToken(ExprParser.TYPE, 0); }
+		public TerminalNode TYPE() { return getToken(llullParser.TYPE, 0); }
 		public List<IdentContext> ident() {
 			return getRuleContexts(IdentContext.class);
 		}
 		public IdentContext ident(int i) {
 			return getRuleContext(IdentContext.class,i);
 		}
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
-		public TerminalNode LBRACKET() { return getToken(ExprParser.LBRACKET, 0); }
-		public TerminalNode RBRACKET() { return getToken(ExprParser.RBRACKET, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
+		public TerminalNode LBRACKET() { return getToken(llullParser.LBRACKET, 0); }
+		public TerminalNode RBRACKET() { return getToken(llullParser.RBRACKET, 0); }
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
 		}
@@ -251,33 +251,33 @@ public class ExprParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
-		public TerminalNode NUM() { return getToken(ExprParser.NUM, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
+		public TerminalNode NUM() { return getToken(llullParser.NUM, 0); }
 		public IdentContext ident() {
 			return getRuleContext(IdentContext.class,0);
 		}
 		public GetArrContext getArr() {
 			return getRuleContext(GetArrContext.class,0);
 		}
-		public TerminalNode POW() { return getToken(ExprParser.POW, 0); }
-		public TerminalNode MULT() { return getToken(ExprParser.MULT, 0); }
-		public TerminalNode DIV() { return getToken(ExprParser.DIV, 0); }
-		public TerminalNode MES() { return getToken(ExprParser.MES, 0); }
-		public TerminalNode MENYS() { return getToken(ExprParser.MENYS, 0); }
-		public TerminalNode MOD() { return getToken(ExprParser.MOD, 0); }
-		public TerminalNode LT() { return getToken(ExprParser.LT, 0); }
-		public TerminalNode LE() { return getToken(ExprParser.LE, 0); }
-		public TerminalNode GT() { return getToken(ExprParser.GT, 0); }
-		public TerminalNode GE() { return getToken(ExprParser.GE, 0); }
-		public TerminalNode DIFF() { return getToken(ExprParser.DIFF, 0); }
-		public TerminalNode EQ() { return getToken(ExprParser.EQ, 0); }
+		public TerminalNode POW() { return getToken(llullParser.POW, 0); }
+		public TerminalNode MULT() { return getToken(llullParser.MULT, 0); }
+		public TerminalNode DIV() { return getToken(llullParser.DIV, 0); }
+		public TerminalNode MES() { return getToken(llullParser.MES, 0); }
+		public TerminalNode MENYS() { return getToken(llullParser.MENYS, 0); }
+		public TerminalNode MOD() { return getToken(llullParser.MOD, 0); }
+		public TerminalNode LT() { return getToken(llullParser.LT, 0); }
+		public TerminalNode LE() { return getToken(llullParser.LE, 0); }
+		public TerminalNode GT() { return getToken(llullParser.GT, 0); }
+		public TerminalNode GE() { return getToken(llullParser.GE, 0); }
+		public TerminalNode DIFF() { return getToken(llullParser.DIFF, 0); }
+		public TerminalNode EQ() { return getToken(llullParser.EQ, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -510,18 +510,18 @@ public class ExprParser extends Parser {
 	}
 
 	public static class StmtContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
-		public List<TerminalNode> LBRACKET() { return getTokens(ExprParser.LBRACKET); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
+		public List<TerminalNode> LBRACKET() { return getTokens(llullParser.LBRACKET); }
 		public TerminalNode LBRACKET(int i) {
-			return getToken(ExprParser.LBRACKET, i);
+			return getToken(llullParser.LBRACKET, i);
 		}
-		public List<TerminalNode> RBRACKET() { return getTokens(ExprParser.RBRACKET); }
+		public List<TerminalNode> RBRACKET() { return getTokens(llullParser.RBRACKET); }
 		public TerminalNode RBRACKET(int i) {
-			return getToken(ExprParser.RBRACKET, i);
+			return getToken(llullParser.RBRACKET, i);
 		}
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
@@ -759,11 +759,11 @@ public class ExprParser extends Parser {
 	}
 
 	public static class ReadContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public IdentContext ident() {
 			return getRuleContext(IdentContext.class,0);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public ReadContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -798,17 +798,17 @@ public class ExprParser extends Parser {
 	}
 
 	public static class WriteContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public List<IdentContext> ident() {
 			return getRuleContexts(IdentContext.class);
 		}
 		public IdentContext ident(int i) {
 			return getRuleContext(IdentContext.class,i);
 		}
-		public List<TerminalNode> STRING() { return getTokens(ExprParser.STRING); }
+		public List<TerminalNode> STRING() { return getTokens(llullParser.STRING); }
 		public TerminalNode STRING(int i) {
-			return getToken(ExprParser.STRING, i);
+			return getToken(llullParser.STRING, i);
 		}
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -933,14 +933,14 @@ public class ExprParser extends Parser {
 	}
 
 	public static class ArrayContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public IdentContext ident() {
 			return getRuleContext(IdentContext.class,0);
 		}
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public ArrayContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -979,14 +979,14 @@ public class ExprParser extends Parser {
 	}
 
 	public static class GetArrContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public IdentContext ident() {
 			return getRuleContext(IdentContext.class,0);
 		}
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public GetArrContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1025,7 +1025,7 @@ public class ExprParser extends Parser {
 	}
 
 	public static class SetArrContext extends ParserRuleContext {
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
 		public IdentContext ident() {
 			return getRuleContext(IdentContext.class,0);
 		}
@@ -1035,7 +1035,7 @@ public class ExprParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public SetArrContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1122,17 +1122,17 @@ public class ExprParser extends Parser {
 		public IdentContext ident(int i) {
 			return getRuleContext(IdentContext.class,i);
 		}
-		public TerminalNode LPAR() { return getToken(ExprParser.LPAR, 0); }
-		public TerminalNode RPAR() { return getToken(ExprParser.RPAR, 0); }
+		public TerminalNode LPAR() { return getToken(llullParser.LPAR, 0); }
+		public TerminalNode RPAR() { return getToken(llullParser.RPAR, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public List<TerminalNode> STRING() { return getTokens(ExprParser.STRING); }
+		public List<TerminalNode> STRING() { return getTokens(llullParser.STRING); }
 		public TerminalNode STRING(int i) {
-			return getToken(ExprParser.STRING, i);
+			return getToken(llullParser.STRING, i);
 		}
 		public MethodContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1236,13 +1236,13 @@ public class ExprParser extends Parser {
 	}
 
 	public static class IdentContext extends ParserRuleContext {
-		public List<TerminalNode> LETTER() { return getTokens(ExprParser.LETTER); }
+		public List<TerminalNode> LETTER() { return getTokens(llullParser.LETTER); }
 		public TerminalNode LETTER(int i) {
-			return getToken(ExprParser.LETTER, i);
+			return getToken(llullParser.LETTER, i);
 		}
-		public List<TerminalNode> NUM() { return getTokens(ExprParser.NUM); }
+		public List<TerminalNode> NUM() { return getTokens(llullParser.NUM); }
 		public TerminalNode NUM(int i) {
-			return getToken(ExprParser.NUM, i);
+			return getToken(llullParser.NUM, i);
 		}
 		public IdentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);

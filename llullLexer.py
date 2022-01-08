@@ -1,4 +1,4 @@
-# Generated from Expr.g4 by ANTLR 4.7.2
+# Generated from llull.g4 by ANTLR 4.7.2
 from antlr4 import *
 from io import StringIO
 from typing.io import TextIO
@@ -99,7 +99,7 @@ def serializedATN():
         return buf.getvalue()
 
 
-class ExprLexer(Lexer):
+class llullLexer(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -162,7 +162,7 @@ class ExprLexer(Lexer):
                   "DIV", "MOD", "LT", "LE", "GT", "GE", "DIFF", "EQ", "POW", 
                   "LPAR", "RPAR", "LBRACKET", "RBRACKET", "STRING", "WS" ]
 
-    grammarFileName = "Expr.g4"
+    grammarFileName = "llull.g4"
 
     def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)

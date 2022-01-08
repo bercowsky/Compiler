@@ -1,5 +1,5 @@
 
-grammar Expr;
+grammar llull;
 //root : expr EOF ;
 root : func* EOF ;
 func : TYPE ident LPAR ((ident',')* ident)? RPAR LBRACKET stmt* RBRACKET;

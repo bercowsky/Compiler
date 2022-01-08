@@ -1,4 +1,4 @@
-# Generated from Expr.g4 by ANTLR 4.7.2
+# Generated from llull.g4 by ANTLR 4.7.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -121,9 +121,9 @@ def serializedATN():
         return buf.getvalue()
 
 
-class ExprParser ( Parser ):
+class llullParser ( Parser ):
 
-    grammarFileName = "Expr.g4"
+    grammarFileName = "llull.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -214,17 +214,17 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def EOF(self):
-            return self.getToken(ExprParser.EOF, 0)
+            return self.getToken(llullParser.EOF, 0)
 
         def func(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.FuncContext)
+                return self.getTypedRuleContexts(llullParser.FuncContext)
             else:
-                return self.getTypedRuleContext(ExprParser.FuncContext,i)
+                return self.getTypedRuleContext(llullParser.FuncContext,i)
 
 
         def getRuleIndex(self):
-            return ExprParser.RULE_root
+            return llullParser.RULE_root
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitRoot" ):
@@ -237,7 +237,7 @@ class ExprParser ( Parser ):
 
     def root(self):
 
-        localctx = ExprParser.RootContext(self, self._ctx, self.state)
+        localctx = llullParser.RootContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_root)
         self._la = 0 # Token type
         try:
@@ -245,7 +245,7 @@ class ExprParser ( Parser ):
             self.state = 27
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==ExprParser.TYPE:
+            while _la==llullParser.TYPE:
                 self.state = 24
                 self.func()
                 self.state = 29
@@ -253,7 +253,7 @@ class ExprParser ( Parser ):
                 _la = self._input.LA(1)
 
             self.state = 30
-            self.match(ExprParser.EOF)
+            self.match(llullParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -269,36 +269,36 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def TYPE(self):
-            return self.getToken(ExprParser.TYPE, 0)
+            return self.getToken(llullParser.TYPE, 0)
 
         def ident(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.IdentContext)
+                return self.getTypedRuleContexts(llullParser.IdentContext)
             else:
-                return self.getTypedRuleContext(ExprParser.IdentContext,i)
+                return self.getTypedRuleContext(llullParser.IdentContext,i)
 
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def LBRACKET(self):
-            return self.getToken(ExprParser.LBRACKET, 0)
+            return self.getToken(llullParser.LBRACKET, 0)
 
         def RBRACKET(self):
-            return self.getToken(ExprParser.RBRACKET, 0)
+            return self.getToken(llullParser.RBRACKET, 0)
 
         def stmt(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.StmtContext)
+                return self.getTypedRuleContexts(llullParser.StmtContext)
             else:
-                return self.getTypedRuleContext(ExprParser.StmtContext,i)
+                return self.getTypedRuleContext(llullParser.StmtContext,i)
 
 
         def getRuleIndex(self):
-            return ExprParser.RULE_func
+            return llullParser.RULE_func
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFunc" ):
@@ -311,21 +311,21 @@ class ExprParser ( Parser ):
 
     def func(self):
 
-        localctx = ExprParser.FuncContext(self, self._ctx, self.state)
+        localctx = llullParser.FuncContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_func)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 32
-            self.match(ExprParser.TYPE)
+            self.match(llullParser.TYPE)
             self.state = 33
             self.ident()
             self.state = 34
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 44
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==ExprParser.LETTER:
+            if _la==llullParser.LETTER:
                 self.state = 40
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,1,self._ctx)
@@ -334,7 +334,7 @@ class ExprParser ( Parser ):
                         self.state = 35
                         self.ident()
                         self.state = 36
-                        self.match(ExprParser.T__0) 
+                        self.match(llullParser.T__0) 
                     self.state = 42
                     self._errHandler.sync(self)
                     _alt = self._interp.adaptivePredict(self._input,1,self._ctx)
@@ -344,13 +344,13 @@ class ExprParser ( Parser ):
 
 
             self.state = 46
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
             self.state = 47
-            self.match(ExprParser.LBRACKET)
+            self.match(llullParser.LBRACKET)
             self.state = 51
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__1) | (1 << ExprParser.T__3) | (1 << ExprParser.T__4) | (1 << ExprParser.T__6) | (1 << ExprParser.T__7) | (1 << ExprParser.T__8) | (1 << ExprParser.T__9) | (1 << ExprParser.T__10) | (1 << ExprParser.LETTER))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__1) | (1 << llullParser.T__3) | (1 << llullParser.T__4) | (1 << llullParser.T__6) | (1 << llullParser.T__7) | (1 << llullParser.T__8) | (1 << llullParser.T__9) | (1 << llullParser.T__10) | (1 << llullParser.LETTER))) != 0):
                 self.state = 48
                 self.stmt()
                 self.state = 53
@@ -358,7 +358,7 @@ class ExprParser ( Parser ):
                 _la = self._input.LA(1)
 
             self.state = 54
-            self.match(ExprParser.RBRACKET)
+            self.match(llullParser.RBRACKET)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -374,67 +374,67 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.ExprContext)
+                return self.getTypedRuleContexts(llullParser.ExprContext)
             else:
-                return self.getTypedRuleContext(ExprParser.ExprContext,i)
+                return self.getTypedRuleContext(llullParser.ExprContext,i)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def NUM(self):
-            return self.getToken(ExprParser.NUM, 0)
+            return self.getToken(llullParser.NUM, 0)
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def getArr(self):
-            return self.getTypedRuleContext(ExprParser.GetArrContext,0)
+            return self.getTypedRuleContext(llullParser.GetArrContext,0)
 
 
         def POW(self):
-            return self.getToken(ExprParser.POW, 0)
+            return self.getToken(llullParser.POW, 0)
 
         def MULT(self):
-            return self.getToken(ExprParser.MULT, 0)
+            return self.getToken(llullParser.MULT, 0)
 
         def DIV(self):
-            return self.getToken(ExprParser.DIV, 0)
+            return self.getToken(llullParser.DIV, 0)
 
         def MES(self):
-            return self.getToken(ExprParser.MES, 0)
+            return self.getToken(llullParser.MES, 0)
 
         def MENYS(self):
-            return self.getToken(ExprParser.MENYS, 0)
+            return self.getToken(llullParser.MENYS, 0)
 
         def MOD(self):
-            return self.getToken(ExprParser.MOD, 0)
+            return self.getToken(llullParser.MOD, 0)
 
         def LT(self):
-            return self.getToken(ExprParser.LT, 0)
+            return self.getToken(llullParser.LT, 0)
 
         def LE(self):
-            return self.getToken(ExprParser.LE, 0)
+            return self.getToken(llullParser.LE, 0)
 
         def GT(self):
-            return self.getToken(ExprParser.GT, 0)
+            return self.getToken(llullParser.GT, 0)
 
         def GE(self):
-            return self.getToken(ExprParser.GE, 0)
+            return self.getToken(llullParser.GE, 0)
 
         def DIFF(self):
-            return self.getToken(ExprParser.DIFF, 0)
+            return self.getToken(llullParser.DIFF, 0)
 
         def EQ(self):
-            return self.getToken(ExprParser.EQ, 0)
+            return self.getToken(llullParser.EQ, 0)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_expr
+            return llullParser.RULE_expr
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpr" ):
@@ -447,7 +447,7 @@ class ExprParser ( Parser ):
     def expr(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = ExprParser.ExprContext(self, self._ctx, _parentState)
+        localctx = llullParser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 4
         self.enterRecursionRule(localctx, 4, self.RULE_expr, _p)
@@ -456,23 +456,23 @@ class ExprParser ( Parser ):
             self.state = 64
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [ExprParser.LPAR]:
+            if token in [llullParser.LPAR]:
                 self.state = 57
-                self.match(ExprParser.LPAR)
+                self.match(llullParser.LPAR)
                 self.state = 58
                 self.expr(0)
                 self.state = 59
-                self.match(ExprParser.RPAR)
+                self.match(llullParser.RPAR)
                 pass
-            elif token in [ExprParser.NUM]:
+            elif token in [llullParser.NUM]:
                 self.state = 61
-                self.match(ExprParser.NUM)
+                self.match(llullParser.NUM)
                 pass
-            elif token in [ExprParser.LETTER]:
+            elif token in [llullParser.LETTER]:
                 self.state = 62
                 self.ident()
                 pass
-            elif token in [ExprParser.T__9]:
+            elif token in [llullParser.T__9]:
                 self.state = 63
                 self.getArr()
                 pass
@@ -492,157 +492,157 @@ class ExprParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
                     if la_ == 1:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 66
                         if not self.precpred(self._ctx, 15):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 15)")
                         self.state = 67
-                        self.match(ExprParser.POW)
+                        self.match(llullParser.POW)
                         self.state = 68
                         self.expr(15)
                         pass
 
                     elif la_ == 2:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 69
                         if not self.precpred(self._ctx, 14):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 14)")
                         self.state = 70
-                        self.match(ExprParser.MULT)
+                        self.match(llullParser.MULT)
                         self.state = 71
                         self.expr(15)
                         pass
 
                     elif la_ == 3:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 72
                         if not self.precpred(self._ctx, 13):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 13)")
                         self.state = 73
-                        self.match(ExprParser.DIV)
+                        self.match(llullParser.DIV)
                         self.state = 74
                         self.expr(14)
                         pass
 
                     elif la_ == 4:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 75
                         if not self.precpred(self._ctx, 12):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 12)")
                         self.state = 76
-                        self.match(ExprParser.MES)
+                        self.match(llullParser.MES)
                         self.state = 77
                         self.expr(13)
                         pass
 
                     elif la_ == 5:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 78
                         if not self.precpred(self._ctx, 11):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 11)")
                         self.state = 79
-                        self.match(ExprParser.MENYS)
+                        self.match(llullParser.MENYS)
                         self.state = 80
                         self.expr(12)
                         pass
 
                     elif la_ == 6:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 81
                         if not self.precpred(self._ctx, 10):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 10)")
                         self.state = 82
-                        self.match(ExprParser.MOD)
+                        self.match(llullParser.MOD)
                         self.state = 83
                         self.expr(11)
                         pass
 
                     elif la_ == 7:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 84
                         if not self.precpred(self._ctx, 9):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 9)")
                         self.state = 85
-                        self.match(ExprParser.LT)
+                        self.match(llullParser.LT)
                         self.state = 86
                         self.expr(10)
                         pass
 
                     elif la_ == 8:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 87
                         if not self.precpred(self._ctx, 8):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 8)")
                         self.state = 88
-                        self.match(ExprParser.LE)
+                        self.match(llullParser.LE)
                         self.state = 89
                         self.expr(9)
                         pass
 
                     elif la_ == 9:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 90
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
                         self.state = 91
-                        self.match(ExprParser.GT)
+                        self.match(llullParser.GT)
                         self.state = 92
                         self.expr(8)
                         pass
 
                     elif la_ == 10:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 93
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
                         self.state = 94
-                        self.match(ExprParser.GE)
+                        self.match(llullParser.GE)
                         self.state = 95
                         self.expr(7)
                         pass
 
                     elif la_ == 11:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 96
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
                         self.state = 97
-                        self.match(ExprParser.DIFF)
+                        self.match(llullParser.DIFF)
                         self.state = 98
                         self.expr(6)
                         pass
 
                     elif la_ == 12:
-                        localctx = ExprParser.ExprContext(self, _parentctx, _parentState)
+                        localctx = llullParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 99
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
                         self.state = 100
-                        self.match(ExprParser.EQ)
+                        self.match(llullParser.EQ)
                         self.state = 101
                         self.expr(5)
                         pass
@@ -667,67 +667,67 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def expr(self):
-            return self.getTypedRuleContext(ExprParser.ExprContext,0)
+            return self.getTypedRuleContext(llullParser.ExprContext,0)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def LBRACKET(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.LBRACKET)
+                return self.getTokens(llullParser.LBRACKET)
             else:
-                return self.getToken(ExprParser.LBRACKET, i)
+                return self.getToken(llullParser.LBRACKET, i)
 
         def RBRACKET(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.RBRACKET)
+                return self.getTokens(llullParser.RBRACKET)
             else:
-                return self.getToken(ExprParser.RBRACKET, i)
+                return self.getToken(llullParser.RBRACKET, i)
 
         def stmt(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.StmtContext)
+                return self.getTypedRuleContexts(llullParser.StmtContext)
             else:
-                return self.getTypedRuleContext(ExprParser.StmtContext,i)
+                return self.getTypedRuleContext(llullParser.StmtContext,i)
 
 
         def assig(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.AssigContext)
+                return self.getTypedRuleContexts(llullParser.AssigContext)
             else:
-                return self.getTypedRuleContext(ExprParser.AssigContext,i)
+                return self.getTypedRuleContext(llullParser.AssigContext,i)
 
 
         def read(self):
-            return self.getTypedRuleContext(ExprParser.ReadContext,0)
+            return self.getTypedRuleContext(llullParser.ReadContext,0)
 
 
         def write(self):
-            return self.getTypedRuleContext(ExprParser.WriteContext,0)
+            return self.getTypedRuleContext(llullParser.WriteContext,0)
 
 
         def method(self):
-            return self.getTypedRuleContext(ExprParser.MethodContext,0)
+            return self.getTypedRuleContext(llullParser.MethodContext,0)
 
 
         def array(self):
-            return self.getTypedRuleContext(ExprParser.ArrayContext,0)
+            return self.getTypedRuleContext(llullParser.ArrayContext,0)
 
 
         def getArr(self):
-            return self.getTypedRuleContext(ExprParser.GetArrContext,0)
+            return self.getTypedRuleContext(llullParser.GetArrContext,0)
 
 
         def setArr(self):
-            return self.getTypedRuleContext(ExprParser.SetArrContext,0)
+            return self.getTypedRuleContext(llullParser.SetArrContext,0)
 
 
         def getRuleIndex(self):
-            return ExprParser.RULE_stmt
+            return llullParser.RULE_stmt
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitStmt" ):
@@ -740,7 +740,7 @@ class ExprParser ( Parser ):
 
     def stmt(self):
 
-        localctx = ExprParser.StmtContext(self, self._ctx, self.state)
+        localctx = llullParser.StmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_stmt)
         self._la = 0 # Token type
         try:
@@ -750,19 +750,19 @@ class ExprParser ( Parser ):
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 107
-                self.match(ExprParser.T__1)
+                self.match(llullParser.T__1)
                 self.state = 108
-                self.match(ExprParser.LPAR)
+                self.match(llullParser.LPAR)
                 self.state = 109
                 self.expr(0)
                 self.state = 110
-                self.match(ExprParser.RPAR)
+                self.match(llullParser.RPAR)
                 self.state = 111
-                self.match(ExprParser.LBRACKET)
+                self.match(llullParser.LBRACKET)
                 self.state = 115
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__1) | (1 << ExprParser.T__3) | (1 << ExprParser.T__4) | (1 << ExprParser.T__6) | (1 << ExprParser.T__7) | (1 << ExprParser.T__8) | (1 << ExprParser.T__9) | (1 << ExprParser.T__10) | (1 << ExprParser.LETTER))) != 0):
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__1) | (1 << llullParser.T__3) | (1 << llullParser.T__4) | (1 << llullParser.T__6) | (1 << llullParser.T__7) | (1 << llullParser.T__8) | (1 << llullParser.T__9) | (1 << llullParser.T__10) | (1 << llullParser.LETTER))) != 0):
                     self.state = 112
                     self.stmt()
                     self.state = 117
@@ -770,19 +770,19 @@ class ExprParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 118
-                self.match(ExprParser.RBRACKET)
+                self.match(llullParser.RBRACKET)
                 self.state = 128
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==ExprParser.T__2:
+                if _la==llullParser.T__2:
                     self.state = 119
-                    self.match(ExprParser.T__2)
+                    self.match(llullParser.T__2)
                     self.state = 120
-                    self.match(ExprParser.LBRACKET)
+                    self.match(llullParser.LBRACKET)
                     self.state = 124
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__1) | (1 << ExprParser.T__3) | (1 << ExprParser.T__4) | (1 << ExprParser.T__6) | (1 << ExprParser.T__7) | (1 << ExprParser.T__8) | (1 << ExprParser.T__9) | (1 << ExprParser.T__10) | (1 << ExprParser.LETTER))) != 0):
+                    while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__1) | (1 << llullParser.T__3) | (1 << llullParser.T__4) | (1 << llullParser.T__6) | (1 << llullParser.T__7) | (1 << llullParser.T__8) | (1 << llullParser.T__9) | (1 << llullParser.T__10) | (1 << llullParser.LETTER))) != 0):
                         self.state = 121
                         self.stmt()
                         self.state = 126
@@ -790,7 +790,7 @@ class ExprParser ( Parser ):
                         _la = self._input.LA(1)
 
                     self.state = 127
-                    self.match(ExprParser.RBRACKET)
+                    self.match(llullParser.RBRACKET)
 
 
                 pass
@@ -798,19 +798,19 @@ class ExprParser ( Parser ):
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 130
-                self.match(ExprParser.T__3)
+                self.match(llullParser.T__3)
                 self.state = 131
-                self.match(ExprParser.LPAR)
+                self.match(llullParser.LPAR)
                 self.state = 132
                 self.expr(0)
                 self.state = 133
-                self.match(ExprParser.RPAR)
+                self.match(llullParser.RPAR)
                 self.state = 134
-                self.match(ExprParser.LBRACKET)
+                self.match(llullParser.LBRACKET)
                 self.state = 138
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__1) | (1 << ExprParser.T__3) | (1 << ExprParser.T__4) | (1 << ExprParser.T__6) | (1 << ExprParser.T__7) | (1 << ExprParser.T__8) | (1 << ExprParser.T__9) | (1 << ExprParser.T__10) | (1 << ExprParser.LETTER))) != 0):
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__1) | (1 << llullParser.T__3) | (1 << llullParser.T__4) | (1 << llullParser.T__6) | (1 << llullParser.T__7) | (1 << llullParser.T__8) | (1 << llullParser.T__9) | (1 << llullParser.T__10) | (1 << llullParser.LETTER))) != 0):
                     self.state = 135
                     self.stmt()
                     self.state = 140
@@ -818,33 +818,33 @@ class ExprParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 141
-                self.match(ExprParser.RBRACKET)
+                self.match(llullParser.RBRACKET)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 143
-                self.match(ExprParser.T__4)
+                self.match(llullParser.T__4)
                 self.state = 144
-                self.match(ExprParser.LPAR)
+                self.match(llullParser.LPAR)
                 self.state = 145
                 self.assig()
                 self.state = 146
-                self.match(ExprParser.T__5)
+                self.match(llullParser.T__5)
                 self.state = 147
                 self.expr(0)
                 self.state = 148
-                self.match(ExprParser.T__5)
+                self.match(llullParser.T__5)
                 self.state = 149
                 self.assig()
                 self.state = 150
-                self.match(ExprParser.RPAR)
+                self.match(llullParser.RPAR)
                 self.state = 151
-                self.match(ExprParser.LBRACKET)
+                self.match(llullParser.LBRACKET)
                 self.state = 155
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__1) | (1 << ExprParser.T__3) | (1 << ExprParser.T__4) | (1 << ExprParser.T__6) | (1 << ExprParser.T__7) | (1 << ExprParser.T__8) | (1 << ExprParser.T__9) | (1 << ExprParser.T__10) | (1 << ExprParser.LETTER))) != 0):
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__1) | (1 << llullParser.T__3) | (1 << llullParser.T__4) | (1 << llullParser.T__6) | (1 << llullParser.T__7) | (1 << llullParser.T__8) | (1 << llullParser.T__9) | (1 << llullParser.T__10) | (1 << llullParser.LETTER))) != 0):
                     self.state = 152
                     self.stmt()
                     self.state = 157
@@ -852,7 +852,7 @@ class ExprParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 158
-                self.match(ExprParser.RBRACKET)
+                self.match(llullParser.RBRACKET)
                 pass
 
             elif la_ == 4:
@@ -913,17 +913,17 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_read
+            return llullParser.RULE_read
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitRead" ):
@@ -936,18 +936,18 @@ class ExprParser ( Parser ):
 
     def read(self):
 
-        localctx = ExprParser.ReadContext(self, self._ctx, self.state)
+        localctx = llullParser.ReadContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_read)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 169
-            self.match(ExprParser.T__6)
+            self.match(llullParser.T__6)
             self.state = 170
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 171
             self.ident()
             self.state = 172
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -963,40 +963,40 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def ident(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.IdentContext)
+                return self.getTypedRuleContexts(llullParser.IdentContext)
             else:
-                return self.getTypedRuleContext(ExprParser.IdentContext,i)
+                return self.getTypedRuleContext(llullParser.IdentContext,i)
 
 
         def STRING(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.STRING)
+                return self.getTokens(llullParser.STRING)
             else:
-                return self.getToken(ExprParser.STRING, i)
+                return self.getToken(llullParser.STRING, i)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.ExprContext)
+                return self.getTypedRuleContexts(llullParser.ExprContext)
             else:
-                return self.getTypedRuleContext(ExprParser.ExprContext,i)
+                return self.getTypedRuleContext(llullParser.ExprContext,i)
 
 
         def getArr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.GetArrContext)
+                return self.getTypedRuleContexts(llullParser.GetArrContext)
             else:
-                return self.getTypedRuleContext(ExprParser.GetArrContext,i)
+                return self.getTypedRuleContext(llullParser.GetArrContext,i)
 
 
         def getRuleIndex(self):
-            return ExprParser.RULE_write
+            return llullParser.RULE_write
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitWrite" ):
@@ -1009,19 +1009,19 @@ class ExprParser ( Parser ):
 
     def write(self):
 
-        localctx = ExprParser.WriteContext(self, self._ctx, self.state)
+        localctx = llullParser.WriteContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_write)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 174
-            self.match(ExprParser.T__7)
+            self.match(llullParser.T__7)
             self.state = 175
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 194
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__9) | (1 << ExprParser.NUM) | (1 << ExprParser.LETTER) | (1 << ExprParser.LPAR) | (1 << ExprParser.STRING))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__9) | (1 << llullParser.NUM) | (1 << llullParser.LETTER) | (1 << llullParser.LPAR) | (1 << llullParser.STRING))) != 0):
                 self.state = 180
                 self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,13,self._ctx)
@@ -1032,7 +1032,7 @@ class ExprParser ( Parser ):
 
                 elif la_ == 2:
                     self.state = 177
-                    self.match(ExprParser.STRING)
+                    self.match(llullParser.STRING)
                     pass
 
                 elif la_ == 3:
@@ -1049,9 +1049,9 @@ class ExprParser ( Parser ):
                 self.state = 191
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==ExprParser.T__0:
+                while _la==llullParser.T__0:
                     self.state = 182
-                    self.match(ExprParser.T__0)
+                    self.match(llullParser.T__0)
                     self.state = 187
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
@@ -1062,7 +1062,7 @@ class ExprParser ( Parser ):
 
                     elif la_ == 2:
                         self.state = 184
-                        self.match(ExprParser.STRING)
+                        self.match(llullParser.STRING)
                         pass
 
                     elif la_ == 3:
@@ -1083,7 +1083,7 @@ class ExprParser ( Parser ):
 
 
             self.state = 196
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1099,21 +1099,21 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(ExprParser.ExprContext,0)
+            return self.getTypedRuleContext(llullParser.ExprContext,0)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_array
+            return llullParser.RULE_array
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitArray" ):
@@ -1126,22 +1126,22 @@ class ExprParser ( Parser ):
 
     def array(self):
 
-        localctx = ExprParser.ArrayContext(self, self._ctx, self.state)
+        localctx = llullParser.ArrayContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_array)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 198
-            self.match(ExprParser.T__8)
+            self.match(llullParser.T__8)
             self.state = 199
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 200
             self.ident()
             self.state = 201
-            self.match(ExprParser.T__0)
+            self.match(llullParser.T__0)
             self.state = 202
             self.expr(0)
             self.state = 203
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1157,21 +1157,21 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(ExprParser.ExprContext,0)
+            return self.getTypedRuleContext(llullParser.ExprContext,0)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_getArr
+            return llullParser.RULE_getArr
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitGetArr" ):
@@ -1184,22 +1184,22 @@ class ExprParser ( Parser ):
 
     def getArr(self):
 
-        localctx = ExprParser.GetArrContext(self, self._ctx, self.state)
+        localctx = llullParser.GetArrContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_getArr)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 205
-            self.match(ExprParser.T__9)
+            self.match(llullParser.T__9)
             self.state = 206
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 207
             self.ident()
             self.state = 208
-            self.match(ExprParser.T__0)
+            self.match(llullParser.T__0)
             self.state = 209
             self.expr(0)
             self.state = 210
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1215,24 +1215,24 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.ExprContext)
+                return self.getTypedRuleContexts(llullParser.ExprContext)
             else:
-                return self.getTypedRuleContext(ExprParser.ExprContext,i)
+                return self.getTypedRuleContext(llullParser.ExprContext,i)
 
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_setArr
+            return llullParser.RULE_setArr
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitSetArr" ):
@@ -1245,26 +1245,26 @@ class ExprParser ( Parser ):
 
     def setArr(self):
 
-        localctx = ExprParser.SetArrContext(self, self._ctx, self.state)
+        localctx = llullParser.SetArrContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_setArr)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 212
-            self.match(ExprParser.T__10)
+            self.match(llullParser.T__10)
             self.state = 213
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 214
             self.ident()
             self.state = 215
-            self.match(ExprParser.T__0)
+            self.match(llullParser.T__0)
             self.state = 216
             self.expr(0)
             self.state = 217
-            self.match(ExprParser.T__0)
+            self.match(llullParser.T__0)
             self.state = 218
             self.expr(0)
             self.state = 219
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1280,15 +1280,15 @@ class ExprParser ( Parser ):
             self.parser = parser
 
         def ident(self):
-            return self.getTypedRuleContext(ExprParser.IdentContext,0)
+            return self.getTypedRuleContext(llullParser.IdentContext,0)
 
 
         def expr(self):
-            return self.getTypedRuleContext(ExprParser.ExprContext,0)
+            return self.getTypedRuleContext(llullParser.ExprContext,0)
 
 
         def getRuleIndex(self):
-            return ExprParser.RULE_assig
+            return llullParser.RULE_assig
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitAssig" ):
@@ -1301,14 +1301,14 @@ class ExprParser ( Parser ):
 
     def assig(self):
 
-        localctx = ExprParser.AssigContext(self, self._ctx, self.state)
+        localctx = llullParser.AssigContext(self, self._ctx, self.state)
         self.enterRule(localctx, 18, self.RULE_assig)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 221
             self.ident()
             self.state = 222
-            self.match(ExprParser.T__11)
+            self.match(llullParser.T__11)
             self.state = 223
             self.expr(0)
         except RecognitionException as re:
@@ -1327,32 +1327,32 @@ class ExprParser ( Parser ):
 
         def ident(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.IdentContext)
+                return self.getTypedRuleContexts(llullParser.IdentContext)
             else:
-                return self.getTypedRuleContext(ExprParser.IdentContext,i)
+                return self.getTypedRuleContext(llullParser.IdentContext,i)
 
 
         def LPAR(self):
-            return self.getToken(ExprParser.LPAR, 0)
+            return self.getToken(llullParser.LPAR, 0)
 
         def RPAR(self):
-            return self.getToken(ExprParser.RPAR, 0)
+            return self.getToken(llullParser.RPAR, 0)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ExprParser.ExprContext)
+                return self.getTypedRuleContexts(llullParser.ExprContext)
             else:
-                return self.getTypedRuleContext(ExprParser.ExprContext,i)
+                return self.getTypedRuleContext(llullParser.ExprContext,i)
 
 
         def STRING(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.STRING)
+                return self.getTokens(llullParser.STRING)
             else:
-                return self.getToken(ExprParser.STRING, i)
+                return self.getToken(llullParser.STRING, i)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_method
+            return llullParser.RULE_method
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMethod" ):
@@ -1365,7 +1365,7 @@ class ExprParser ( Parser ):
 
     def method(self):
 
-        localctx = ExprParser.MethodContext(self, self._ctx, self.state)
+        localctx = llullParser.MethodContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_method)
         self._la = 0 # Token type
         try:
@@ -1373,11 +1373,11 @@ class ExprParser ( Parser ):
             self.state = 225
             self.ident()
             self.state = 226
-            self.match(ExprParser.LPAR)
+            self.match(llullParser.LPAR)
             self.state = 243
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ExprParser.T__9) | (1 << ExprParser.NUM) | (1 << ExprParser.LETTER) | (1 << ExprParser.LPAR) | (1 << ExprParser.STRING))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << llullParser.T__9) | (1 << llullParser.NUM) | (1 << llullParser.LETTER) | (1 << llullParser.LPAR) | (1 << llullParser.STRING))) != 0):
                 self.state = 235
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,18,self._ctx)
@@ -1398,12 +1398,12 @@ class ExprParser ( Parser ):
 
                         elif la_ == 3:
                             self.state = 229
-                            self.match(ExprParser.STRING)
+                            self.match(llullParser.STRING)
                             pass
 
 
                         self.state = 232
-                        self.match(ExprParser.T__0) 
+                        self.match(llullParser.T__0) 
                     self.state = 237
                     self._errHandler.sync(self)
                     _alt = self._interp.adaptivePredict(self._input,18,self._ctx)
@@ -1423,14 +1423,14 @@ class ExprParser ( Parser ):
 
                 elif la_ == 3:
                     self.state = 240
-                    self.match(ExprParser.STRING)
+                    self.match(llullParser.STRING)
                     pass
 
 
 
 
             self.state = 245
-            self.match(ExprParser.RPAR)
+            self.match(llullParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1447,18 +1447,18 @@ class ExprParser ( Parser ):
 
         def LETTER(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.LETTER)
+                return self.getTokens(llullParser.LETTER)
             else:
-                return self.getToken(ExprParser.LETTER, i)
+                return self.getToken(llullParser.LETTER, i)
 
         def NUM(self, i:int=None):
             if i is None:
-                return self.getTokens(ExprParser.NUM)
+                return self.getTokens(llullParser.NUM)
             else:
-                return self.getToken(ExprParser.NUM, i)
+                return self.getToken(llullParser.NUM, i)
 
         def getRuleIndex(self):
-            return ExprParser.RULE_ident
+            return llullParser.RULE_ident
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitIdent" ):
@@ -1471,13 +1471,13 @@ class ExprParser ( Parser ):
 
     def ident(self):
 
-        localctx = ExprParser.IdentContext(self, self._ctx, self.state)
+        localctx = llullParser.IdentContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_ident)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 247
-            self.match(ExprParser.LETTER)
+            self.match(llullParser.LETTER)
             self.state = 251
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,21,self._ctx)
@@ -1485,7 +1485,7 @@ class ExprParser ( Parser ):
                 if _alt==1:
                     self.state = 248
                     _la = self._input.LA(1)
-                    if not(_la==ExprParser.NUM or _la==ExprParser.LETTER):
+                    if not(_la==llullParser.NUM or _la==llullParser.LETTER):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
